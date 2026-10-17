@@ -1,0 +1,112 @@
+/* ---------- Design tokens (light theme) ---------- */
+:root {
+  --accent: #1971c2;
+  --accent-hover: #1864ab;
+  --on-accent: #ffffff;
+
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --bubble-assistant: #e7f0fb;
+  --text: #1b2a3b;
+  --text-muted: #5f7285;
+  --border: #d6e4f5;
+  --error-bg: #fff5f5;
+  --error-text: #c92a2a;
+  --shadow: 0 8px 30px rgba(28, 126, 214, 0.12);
+
+  --radius: 16px;
+  --radius-sm: 10px;
+  --chat-max-width: 720px;
+
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- Dark theme ---------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #4dabf7;
+    --accent-hover: #74c0fc;
+    --on-accent: #0b1622;
+
+    --bg: #0b1622;
+    --surface: #12212f;
+    --bubble-assistant: #1c3045;
+    --text: #e8f1fa;
+    --text-muted: #8fa6bc;
+    --border: #25394d;
+    --error-bg: #3b1c1c;
+    --error-text: #ff8787;
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+textarea,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ---------- Page layout ---------- */
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 16px;
+}
+
+/* The chat card that holds header, messages and input */
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--chat-max-width);
+  height: 100%;
+  max-height: 800px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Phones: use the full screen, no card look */
+@media (max-width: 600px) {
+  .app {
+    padding: 0;
+  }
+  .chat-window {
+    max-height: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
